@@ -39,7 +39,7 @@ app.controller("quizCtrl", function ($http, $routeParams, quizFactory, cssInject
     $http.get("db/Quizs/" + $routeParams.id + '.js').then(function (res) {
         quizFactory.questions = res.data;
     });
-    cssInjector.add("css/poly_quiz.css");
+    // cssInjector.add("css/poly_quiz.css");
 });
 app.directive('quiz', function (quizFactory, $routeParams,$rootScope,$interval) {
     return {
