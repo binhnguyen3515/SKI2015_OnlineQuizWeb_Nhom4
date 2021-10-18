@@ -1,0 +1,105 @@
+.modal ::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+#editStudent ::placeholder {
+    color: rgba(144, 133, 133, 0.7) !important;
+}
+.modal input[type=email],
+.modal input[type=text],
+.modal input[type=date],
+.modal input[type=password],
+.modal textarea,
+.modal select,
+.modal input[list=countryList],
+.modal input[list=gender],
+.modal input[type=checkbox],.modal input[ng-model='st.birthday'] {
+    color: rgba(16, 236, 16, 0.9) !important;
+    background-color: transparent !important;
+}
+#editStudent input[type=text],#editStudent input[type=email],#editStudent input[type=date]{
+    color: rgba(19, 20, 19, 0.9) !important;
+    background-color: transparent !important;
+}
+.modal select>option {
+    color: rgba(0, 0, 0, .8);
+}
+
+.modal input[type=date]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    /* margin-right: 2px; */
+    opacity: .8;
+    filter: invert(0.8);
+}
+
+.modal input[type=date]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+.modal button.rounded-0:hover {
+    /* background-color: #4EA09C !important; */
+    border-top: transparent;
+    border-color: transparent;
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(30, 50, 223), rgb(156, 10, 161)) !important;
+}
+
+#staticDangKy button[data-dismiss=modal],#staticDoiMatKhau button[data-dismiss=modal],#staticQuenMatKhau button[data-dismiss=modal] {
+    font-size: 30px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+#staticDangKy button[data-dismiss=modal]:hover,#staticDoiMatKhau button[data-dismiss=modal]:hover,#staticQuenMatKhau button[data-dismiss=modal]:hover {
+    background-color: #DC3545;
+}
+
+.modal input[type=checkbox]:focus {
+    outline: 1px solid rgba(255, 250, 250, 0.7);
+}
+
+.modal input[type=checkbox] {
+    background-color: transparent;
+    /* border-radius: 2px; */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    outline: 1px solid rgba(255, 250, 250, 0.7);
+}
+
+.modal input[type=checkbox]:checked {
+    background: #409fd6 url("data:image/gif;base64,R0lGODlhCwAKAJEAAAAAAP///xDsEP///yH5BAEAAAMALAAAAAALAAoAAAIUnH+CK73WHIsw0UGjglraO20PNhYAOw==") 3px 3px no-repeat;
+}
+.u-text-1 a:hover,.u-text-1 span:hover{
+    color: #570404 !important;
+}
+a .u-text-2:hover{
+    color: #570404 !important;
+}
+button[disabled=disabled]{
+    background-color: gray !important;
+    border:1px solid gray !important;
+}
+button[disabled=disabled].rounded-0:hover{
+    background-color: hsl(0, 0%, 60%) !important;
+    background-image: linear-gradient(to right, rgb(99, 100, 104), rgb(88, 79, 88)) !important;
+}
+
+.registerInfoCSS span{
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+}
+
+/*Form test result*/
+.cssTestResult p span{
+    display: inline-block;
+    width: 100px;
+    font-weight: bold;
+}

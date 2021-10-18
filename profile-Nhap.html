@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/background/box.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/poly.css">
+  <link rel="stylesheet" href="css/poly_trangChu.css">
+  <link rel="stylesheet" href="fonts/fontawesome-free-5.15.3-web/css/all.min.css">
+  <!-- Khôi phục mật khẩu, đổi mật khẩu và đăng ký dùng chung file css-->
+  <link rel="stylesheet" href="css/poly_dangKyMainForm.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="js/1.8.2/angular.min.js"></script>
+  <script src="js/jquery-3.6.0.js"></script>
+  <!-- UI bootstrap angularJS-->
+  <script type="text/javascript" src="js/angularUI_Bootstrap/ui-bootstrap-tpls-3.0.6.min.js"></script>
+  <!-- Angularjs router-->
+  <script src="js/1.8.2/angular-route.js"></script>
+  <!--AngularCSS Injector-->
+  <script src="js/1.8.2/angular-css-injector.js"></script>  
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!--Nice page js for HoiDap-->
+  <script src="js/nicepage.js"></script>
+  <!-- Danh sách sinh vien api-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Datatables-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css"/>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+  
+  <title>Profile</title>
+  
+</head>
+
+<body ng-app="myapp">
+  <div class="sidebar">
+    <div class="logo-details">
+
+        <div class="logo_name form-check-inline"><i class="fas fa-layer-group"></i>Danh mục</div>
+        <i class='bx bx-menu' id="btn"></i>
+      </div>
+      <ul class="nav-list accordion" id="accordionExample">
+        <li>
+          <i class='bx bx-search'></i>
+          <input type="text" placeholder="Tìm kiếm...">
+        </li>
+        <li class="nav-item">
+          <a href="#!/trangChu">
+            <i class='bx bx-grid-alt'></i>
+            <span class="links_name">Trang Chủ</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#!/gioiThieu">
+            <i class='bx bx-info-square'></i>
+            <span class="links_name">Giới thiệu</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#!/lienHe">
+            <i class='bx bx-phone-outgoing'></i>
+            <span class="links_name">Liên hệ</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#!/gopY">
+            <i class='bx bx-chat'></i>
+            <span class="links_name">Góp ý</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#!/hoiDap">
+            <i class='bx bx-question-mark'></i>
+            <span class="links_name">Hỏi đáp</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
+            <i class='bx bx-book-reader'></i>
+            <span class="links_name">Các môn học</span>
+          </a>
+          <div id="collapseTwo" class="collapse sidebar-submenu" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                <i class="fas fa-robot"></i><span>Lập trình Android nâng cao</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-robot"></i><span>Lập trình
+                  Android cơ bản</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-charging-station"></i><span>Kiểm
+                  thử và triển khai ứng dụng Android</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i
+                  class="fas fa-drafting-compass"></i><span>Thiết kế giao diện trên Android</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fab fa-cuttlefish">#</i><span>Lập trình
+                  ASP.NET</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-cloud"></i><span>Điện toán đám
+                  mây</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-database"></i><span>SQL
+                  Server</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fas fa-database"></i><span>Cơ sở dữ
+                  liệu</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fab fa-unity"></i><span>Lập trình game
+                  2D</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fab fa-html5"></i><span>HTML5 và
+                  CSS3</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i
+                  class="fab fa-internet-explorer"></i><span>Internet Marketing</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fab fa-java"></i><span>Lập trình Java
+                  nâng cao</span></a>
+              <a href="#" class="list-group-item list-group-item-action"><i class="fab fa-java"></i><span>Lập trình hướng
+                  đối tượng</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            <i class='bx bx-user'></i>
+            <span class="links_name">Tài khoản</span>
+          </a>
+          <div id="collapseOne" class="collapse sidebar-submenu" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action" aria-current="true" data-toggle="modal" data-target="#staticQuenMatKhau">
+                <i class="far fa-question-circle"></i><span>Quên mật khẩu</span>
+              </a>
+              <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#staticDoiMatKhau"><i
+                  class="fas fa-user-edit"></i><span>Đổi mật khẩu</span></a>
+              <a href="dangNhap.html" class="list-group-item list-group-item-action"><i
+                  class="fas fa-sign-in-alt"></i><span>Đăng nhập</span></a>
+              <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#staticDangKy"><i
+                  class="fas fa-user-plus"></i><span>Đăng ký tài khoản</span></a>
+              <a href="#!danhSachSinhVien" class="list-group-item list-group-item-action"><i class="fas fa-clipboard-list"></i></i><span>Danh sách sinh viên</span></a>
+            </div>
+          </div>
+        </li>
+        <li style="height: 100px; background-color: transparent; color: transparent;">
+          <a style="height: 100px; background-color: transparent; color: transparent;">
+            <span class="links_name"></span>
+          </a>
+        </li>
+        <li class="profile">
+          <div class="profile-details">
+            <!--<img src="profile.jpg" alt="profileImg">-->
+            <div class="name_mssv">
+              <div class="name">Nguyễn Thái Bình</div>
+              <div class="mssv">PS14048 - UD16101</div>
+            </div>
+          </div>
+          <i class='bx bx-log-out' id="log_out"></i>
+        </li>
+      </ul>
+</div>
+  
+  <section class="title-bar">
+    <div class="row header-right">
+      <marquee behavior="alternate" direction="">
+        <h2>Website Thi Trắc Nghiệm Trực Tuyến Trường Cao Đẳng FPT Polytechnic</h2>
+      </marquee>
+    </div>
+    <div class="content-section row mt-3" style="padding-left: 30px;" ng-view>
+      <!-- Include Content here-->
+      
+      <!--Include Content Edge-->
+    </div>
+  </section>
+  <ng-include src="'includePages/modal.html'">
+
+  </ng-include>
+</body>
+<script>
+  var app = angular.module("myapp",['ngRoute','ui.bootstrap','angular.css.injector']);
+  app.config(function($routeProvider){
+    $routeProvider
+    .when("/trangChu",{
+      templateUrl:"includePages/trangChu.html?"+Math.random(),
+      controller: "trangChuCtrl"
+    })
+    .when("/gioiThieu",{
+      templateUrl:"includePages/gioiThieu.html?"+Math.random(),
+      controller:"gioiThieuCtrl"
+    })
+    .when("/lienHe",{
+      templateUrl:"includePages/lienHe.html?"+Math.random(),
+      controller:"lienHeCtrl"
+    })
+    .when("/gopY",{
+      templateUrl:"includePages/gopY.html?"+Math.random(),
+      controller:"gopYCtrl"
+    })
+    .when("/hoiDap",{
+      templateUrl:"includePages/hoiDap.html?"+Math.random(),
+      controller:"hoiDapCtrl"
+    })
+    .when("/danhSachSinhVien",{
+      templateUrl:"includePages/danhSachSinhVien.html?"+Math.random(),
+      controller:"danhSachCtrl"
+    })
+    .otherwise({
+      redirectTo:"/trangChu",
+      controller: "trangChuCtrl"
+    })
+  });
+  //trang chủ
+  app.controller("trangChuCtrl",function($scope,$http,cssInjector){
+    $http.get("db/Subjects.js")
+    .then(function successCallBack(response){
+      $scope.subjects = response.data;
+      $scope.currentPage = 1;
+      $scope.itemsPerPage = 8;
+      $scope.totalPages = Math.ceil(response.data.length / $scope.itemsPerPage);
+      $scope.totalItems = response.data.length;
+      cssInjector.removeAll();
+      // console.log($scope.subjects);
+    },function errorCallBack(response){
+      alert("Load subjects.js không thành công, kiểm tra lại server!");
+    })
+  })
+  // Giới thiệu
+  app.controller("gioiThieuCtrl",function($scope,cssInjector){
+    cssInjector.removeAll();
+  })
+  // Liên lạc
+  app.controller("lienHeCtrl",function($scope,cssInjector){
+    cssInjector.removeAll();
+    cssInjector.add("css/poly_lienHe.css");
+  })
+  // Góp ý
+  app.controller("gopYCtrl",function($scope,cssInjector){
+    cssInjector.removeAll();
+  })
+  // Hỏi đáp
+  app.controller("hoiDapCtrl",function($scope,cssInjector){
+    cssInjector.removeAll();
+    cssInjector.add("css/poly_hoiDap.css");
+  })
+  // Danh sách sinh viên
+  app.controller("danhSachCtrl",function($scope,cssInjector,$http){
+    $http.get("db/Students.js")
+    .then(function successCallBack(response){
+      $scope.students = response.data;
+      cssInjector.removeAll();
+      angular.element(document).ready(function() {  
+        dTable = $('#myTable')  
+        dTable.DataTable({
+          "pageLength":8,
+          "lengthMenu": [[ 8, 16, 24,-1],[ 8, 16, 24,"All"]],
+          "language":{
+          "paginate": {
+          'previous': '<i class="fas fa-backward"></i>',
+          'next': '<i class="fas fa-forward"></i>'
+          }
+        }
+        });  
+      }); 
+    },function errorCallBack(response){
+      alert("Load subjects.js không thành công, kiểm tra lại server!");
+    })
+  })
+  app.run(function($rootScope,$http){
+    // $rootScope.$on('$includeContentLoaded',function(){
+    //   $http.get("js/script.js")
+    //   $http.get("js/script.js")
+    // })
+    $rootScope.$on('$routeChangeStart',function(){
+      $rootScope.loading = true;
+    });
+    $rootScope.$on('$routeChangeSuccess',function(){
+      $rootScope.loading = false;
+    });
+    $rootScope.$on('$routeChangeError',function(){
+      $rootScope.loading = false;
+      alert("Lỗi, không tải được template");
+    });
+  })
+</script>
+<script>
+  $(document).ready(function () {
+    $('.nav-item').on("click", function () {
+
+      $('.nav-item').removeClass('active');
+      $(this).addClass('active');
+    });
+  });
+</script>
+<script src="js/script.js"></script>
+
+</html>

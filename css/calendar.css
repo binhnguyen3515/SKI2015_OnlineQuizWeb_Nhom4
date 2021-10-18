@@ -1,0 +1,36 @@
+.text-info{
+    color: var(--whiteSmoke) !important;
+}
+.btn.btn-secondary:hover{
+    background-color: var(--info);
+}
+
+.btn.btn-secondary.btn-sm.active{
+    background-color: var(--primary) !important;
+    color: var(--whiteSmoke);
+    font-weight: bold;
+}
+th.text-center.ng-scope{
+    background-color: var(--dark);
+    color: var(--whiteSmoke);
+}
+td.text-center.h6.ng-scope{
+    background-color: var(--danger) !important;
+    color: var(--whiteSmoke);
+}
+#model-body > div:nth-child(6) > div > div.ng-untouched.ng-valid.ng-scope.ng-valid-date-disabled.ng-not-empty.ng-dirty.show > ul{
+    padding-top: 0;
+    background-color:var(--dark);
+}
+#model-body > div:nth-child(6) > div > div.ng-untouched.ng-valid.ng-scope.ng-valid-date-disabled.ng-dirty.ng-empty.show > ul{
+    padding-top: 0;
+    background-color:var(--dark);
+}
+#model-body > div:nth-child(6) > div > div.ng-pristine.ng-untouched.ng-valid.ng-scope.ng-empty.ng-valid-date-disabled.show > ul{
+    padding-top: 0;
+    background-color:var(--dark);
+}
+#model-body > div:nth-child(2) > div:nth-child(2) > div > input,#model-body > div:nth-child(4) > div > input{
+    background-color: var(--whiteSmoke) !important;
+    color:var(--dark) !important;
+}

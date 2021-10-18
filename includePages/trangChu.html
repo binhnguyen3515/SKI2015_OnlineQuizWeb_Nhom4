@@ -1,0 +1,40 @@
+<div class="col setBoxShadow mb-3">
+    <div class="row">
+      <!-- Include Content here-->
+      <div class="py-5 team2 col">
+        <div class="row justify-content-center mb-4">
+          <div class="col-md-7 text-center">
+            <h3 class="mb-3 text-danger">Danh sách các môn thi</h3>
+            <h6 class="subtitle font-weight-normal">Các bạn chọn một môn thi yêu thích để bắt đầu kiểm tra. Tuân thủ quy tắc khi thi, nếu phát hiện gian lận sẽ đuổi học</h6>
+          </div>
+        </div>
+        <div class="card-columns">
+          <!-- column  -->
+          <div class="card" ng-repeat="s in subjects.slice((currentPage-1)*itemsPerPage, currentPage*itemsPerPage)">
+            <!-- Row -->
+            <div class=" no-gutters">
+              <div class="card-body">
+                <img ng-src="images/logos/{{s.Logo}}" class="card-img-top px-5 w-75 mx-auto d-block img-fluid" alt="">
+              </div>
+              <div class="card-footer bg-dark d-flex align-items-center justify-content-center" style="height: 63px;">
+                <a href="#!quiz/{{s.Id}}/{{s.Name}}/{{s.Logo}}"><h6 class="text-white mb-0">{{s.Name}}</h6></a>
+              </div>
+            </div>
+            <!-- Row -->
+          </div>
+          <!-- column  -->
+        </div>
+      </div>
+      <!--Include Content Edge-->
+    </div>
+    <ul uib-pagination
+      total-items = "totalItems"
+      ng-model ="currentPage"
+      class="pagination-sm justify-content-center fa d-flex"
+      items-per-page  = "itemsPerPage"
+      next-text="&#xf051;"
+      previous-text="&#xf048;"
+      style="font-weight: 900;">
+      </ul>
+  </div>
+  

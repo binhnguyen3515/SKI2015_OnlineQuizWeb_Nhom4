@@ -1,0 +1,36 @@
+::placeholder {
+    color: rgba(255, 255, 255,0.7) !important;
+}
+input[type=email],input[type=text],input[type=date],input[type=password],textarea,select,input[list=countryList],input[list=gender]{
+    color: rgba(255, 255, 255,0.9) !important;
+    background-color: transparent !important;
+}
+select>option{
+    color: rgba(0, 0, 0, .8);
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    border-radius: 4px;
+    /* margin-right: 2px; */
+    opacity: .8;
+    filter: invert(0.8);
+}
+input[type=date]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+button.rounded-0:hover{
+    /* background-color: #4EA09C !important; */
+    border-top: transparent;
+    border-color: transparent;
+    background-color: transparent;
+    background-image: linear-gradient(to right, rgb(30, 50, 223), rgb(156, 10, 161)) !important;
+}
+button[data-dismiss=modal]{
+    font-size: 30px;
+    position: absolute;
+    top:5px;
+    right: 5px;
+}
+button[data-dismiss=modal]:hover{
+    background-color: #DC3545;
+}

@@ -1,0 +1,46 @@
+<!-- Include Content here-->
+<div ng-show="!inProgress" class="form-group text-center mx-auto mt-5 mb-5">
+    <div class="form-group mt-5">
+        <p><h3 class="text-danger">{{sjName}}</h3></p>
+        <p><h4 class="text-danger">(Thời gian làm bài: 10 phút)</h4></p>
+    </div>
+    <div class="form-group my-5">
+        <img ng-src="images/logos/{{sjLogo}}" class="img-fluid p-1" style="border: 5px double rgb(50, 58, 57) !important;">
+    </div>
+    <button class="btn btn-primary font-weight-bold" ng-click="start()"><i class="fas fa-stopwatch mr-2"></i>Start Quiz</button>
+</div>
+<div ng-show="inProgress">
+    <div class="form-group">
+        <h3 class="row p-3"><label
+                class="badge badge-dark col-8 py-3 text-warning quizLabelpading text-wrap d-flex align-items-center justify-content-center">{{sjName}}</label>
+            <label class="badge badge-danger col-4 py-3 quizLabelpading text-wrap">Time left: {{timer.minutes}}:{{timer.seconds}}</label>
+        </h3>
+    </div>
+    <div class="form-group" style="min-height: 100px;">
+        <label class="font-weight-bold">{{id+1}}. {{question}}</label>
+    </div>
+    <div class="form-group">
+        
+        <div class="" ng-repeat="op in options"><!--ng-class="cssColor(op.Id,answer)"-->
+            <input  type="radio" name="answer" id="{{op.Id}}" value="{{op.Id}}" ng-class="cssColor(op.Id,answer)" ng-click="checkAnswer()">
+            <label for="{{op.Id}}"><b>{{$index+1}}</b>. {{op.Text}}</label><br>
+        </div>
+    </div>
+    <!-- <div class="form-group quizCssPagination bottomBtnCss1">
+        <ul uib-pagination direction-links="false" total-items="10" ng-model="currentPage"
+            class="pagination-sm justify-content-center fa d-flex" items-per-page="1"
+             style="font-weight: 900;">
+        </ul>
+    </div> -->
+    <div class="form-group bottomBtnCss2">
+        <!-- <button class="btn btn-success mb-1 submit" ng-click="checkAnswer()" style="width: 119.6px;"><i class="fas fa-check-circle mr-2"></i>Submit</button> -->
+        <button ng-disabled="id==0" class="btn btn-primary mb-1" style="width: 119.6px;" ng-click="prevQuestion()"><i class="fas fa-arrow-left mr-2"></i>Prev</button>
+        <button ng-disabled="id==9" class="btn btn-primary mb-1" style="width: 119.6px;" ng-click="nextQuestion()">Next<i class="fas fa-arrow-right ml-2"></i></button>
+        <button ng-disabled="answerMode" class="btn btn-warning mb-1" style="width: 119.6px;" ng-click="finish()"><i class="fas fa-thumbs-up mr-2"></i>Finish</button>
+        <span ng-show="answerMode" class="btn btn-info mb-1 text-nowrap" style="width: 120.6px;">Score: {{count1}}/10</span>
+        <span ng-show="!answerMode" class="btn btn-success mb-1 text-nowrap" style="width: 120.6px;">Quest: {{id+1}}/10</span>
+        <a ng-show="answerMode" href="#!/trangChu" class="btn btn-danger mb-1" style="width: 119.6px;"><i class="fas fa-home mr-2"></i>Home</a>
+    </div>
+</div>
+
+<!--Include Content Edge-->

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="images/background/box.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/poly.css">
+  <link rel="stylesheet" href="css/poly_trangChu.css">
+  <link rel="stylesheet" href="css/poly_quiz.css">
+  <link rel="stylesheet" href="fonts/fontawesome-free-5.15.3-web/css/all.min.css">
+  <!-- Khôi phục mật khẩu, đổi mật khẩu và đăng ký dùng chung file css-->
+  <link rel="stylesheet" href="css/poly_dangKyMainForm.css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <script src="js/1.8.2/angular.min.js"></script>
+  <script src="js/jquery-3.6.0.js"></script>
+  <!-- UI bootstrap angularJS-->
+  <script type="text/javascript" src="js/angularUI_Bootstrap/ui-bootstrap-tpls-3.0.6.min.js"></script>
+  <!-- Angularjs router-->
+  <script src="js/1.8.2/angular-route.js"></script>
+  <!--AngularCSS Injector-->
+  <script src="js/1.8.2/angular-css-injector.js"></script>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="js/bootstrap.bundle.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!--Nice page js for HoiDap-->
+  <script src="js/nicepage.js"></script>
+  <!-- Danh sách sinh vien api-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Datatables-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" />
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+  <script src="js/layout.js"></script>
+  <title>Profile</title>
+</head>
+
+<body ng-app="myapp" >
+  <div class="sidebar" ng-include="'includePages/sidebar.html'" onload="sidebarEffect()" ng-controller="sidebarCtrl">
+  </div>
+
+  <section class="title-bar">
+    <div class="row header-right">
+      <marquee behavior="alternate" direction="">
+        <h2>Website Thi Trắc Nghiệm Trực Tuyến</h2>
+      </marquee>
+    </div>
+    <div class="content-section row mt-3" style="padding-left: 30px;" ng-view>
+      <!-- Include Content here-->
+      
+      <!--Include Content Edge-->
+    </div>
+  </section>
+  <ng-include src="'includePages/modal.html'">
+
+  </ng-include>
+</body>
+
+</html>

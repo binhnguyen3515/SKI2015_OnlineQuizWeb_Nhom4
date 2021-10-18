@@ -1,0 +1,381 @@
+ <!--Modal quên mật khẩu-->
+ <div class="modal fade" id="staticQuenMatKhau" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered row" style="background-color: transparent;">
+            <form name="formQmk" class="mx-auto col modal-content" style="background-color: transparent;background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,.8));">
+                <h2 class="text-center pt-3" style="color: whitesmoke;">KHÔI PHỤC MẬT KHẨU</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="text-white" aria-hidden="true"><i class='bx bx-x'></i></span>
+                  </button>
+            <div class="form-group px-4 pt-4 pb-3">
+                <input name="txtEmail" class="form-control rounded-0 border-top-0 border-left-0 border-right-0 emailModal" type="email" placeholder="Nhập email" required ng-model="st.email">
+                <small ng-show="formQmk.txtEmail.$error.required" class="text-danger" style="padding-left: 14px;">Chưa nhập email</small>
+                <small ng-show="formQmk.txtEmail.$invalid && !formQmk.txtEmail.$error.required" class="text-danger" style="padding-left: 14px;">Email sai định dạng</small>
+            </div>
+            <div class="form-group pb-3 px-4">
+                <button ng-disabled="formQmk.$pristine || formQmk.$invalid" class="btn rounded-0 form-control text-white" style="height: 50px; background-color: #009EFA"><h4 class="my-0">ĐỒNG Ý</h4></button>
+            </div>
+        </form>
+    </div>
+  </div>
+  <!--Modal đổi mật khẩu-->
+  <div class="modal fade" id="staticDoiMatKhau" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered row" style="background-color: transparent;">
+            <form name="formDmk" class="mx-auto col modal-content" style="background-color: transparent;background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,.8));">
+                <h2 class="text-center pt-3" style="color: whitesmoke;">ĐỔI MẬT KHẨU</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="text-white" aria-hidden="true"><i class='bx bx-x'></i></span>
+                  </button>
+            <div class="form-group px-4 pt-4 pb-1" ng-init="currentpass=userLogin.password">
+                <input name="oldPass" class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="password" placeholder="Nhập password cũ" required ng-model="st.password" >
+                <small ng-show="formDmk.oldPass.$error.required" class="text-danger" style="padding-left: 14px;">Chưa nhập password cũ</small>
+                <small ng-show="!formDmk.oldPass.$error.required && (st.password != currentpass)" class="text-danger" style="padding-left: 14px;">Password cũ không chính xác</small>
+            </div>
+            <div class="form-group px-4 pt-1 pb-1">
+              <input name="newPass" class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="password" placeholder="Nhập password mới" required ng-model="st.newPass" ng-minlength="6" ng-maxlength="30">
+              <small ng-show="formDmk.newPass.$error.required" class="text-danger" style="padding-left: 14px;">Chưa nhập password mới</small>
+              <small ng-show="formDmk.newPass.$invalid && !formDmk.newPass.$error.required" class="text-danger" style="padding-left: 14px;">Password phải từ 6 đến 30 ký tự</small>
+            </div>
+            <div class="form-group px-4 pt-1 pb-1">
+              <input name="confirmPwd" class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="password" placeholder="Nhập xác nhận password" required ng-model="st.confirmPwd">
+              <small ng-show="formDmk.confirmPwd.$error.required" class="text-danger" style="padding-left: 14px;">Chưa nhập xác nhận password</small>
+              <small ng-show="!formDmk.confirmPwd.$error.required && st.confirmPwd!=st.newPass" class="text-danger" style="padding-left: 14px;">Mật khẩu xác nhận không chính xác</small>
+            </div>
+            <div class="form-group pb-2 px-4">
+                <button ng-disabled="formDmk.$pristine || formDmk.$invalid || st.confirmPwd!=st.newPass" ng-click="doiMatKhau()" class="btn rounded-0 form-control text-white" style="height: 50px; background-color: #009EFA"><h4 class="my-0">XÁC NHẬN</h4></button>
+            </div>
+        </form>
+    </div>
+  </div>
+  <!--Modal đăng ký tài khoản-->
+  <div class="modal fade" id="staticDangKy" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered row" style="background-color: transparent; min-width: 800px;">
+        <form name="formdk" class="mx-auto col modal-content" style="background-color: transparent;background-image: linear-gradient(rgb(55, 121, 128,0.9),rgb(45, 42, 61,0.9));">
+            <h2 class="text-center pt-3" style="color: whitesmoke;">ĐĂNG KÝ TÀI KHOẢN</h2>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="text-white" aria-hidden="true"><i class='bx bx-x'></i></span>
+              </button>
+        <div class="form-group px-4 pt-4 pb-2 row">
+            <div class="col">
+                <input name="name" ng-model="st.username" class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="text" placeholder="Nhập username" required>
+                <small ng-show="formdk.name.$invalid" class="text-danger" style="padding-left: 14px;">Chưa nhập username</small>
+            </div>
+        </div>
+        <div class="form-group px-4 pt-2 pb-2 row">
+            <div class="col-6">
+                <input name="pass" ng-model="st.password" class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="password" placeholder="Nhập password" ng-minlength="6" ng-maxlength="30" required>
+                <small ng-show="formdk.pass.$invalid" class="text-danger" style="padding-left: 14px;">Password phải từ 6 - 30 ký tự</small>
+            </div>
+            <div class="col-6">
+                <input name="hocPhi" class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="text" placeholder="Nhập học phí" ng-model="st.schoolfee" ng-min="200000" required>
+                <small ng-show="formdk.hocPhi.$error.required" class="text-danger" style="padding-left: 14px;">Chưa nhập học phí</small>
+                <small ng-show="formdk.hocPhi.$invalid && !formdk.hocPhi.$error.required" class="text-danger" style="padding-left: 14px;">Học phí tối thiểu là 200000</small>
+            </div>
+        </div>      
+        <div class="form-group px-4 pt-2 pb-2 row">
+            <div class="col-6">
+                <input class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="text" placeholder="Nhập họ tên" name="hoTen" required ng-model="st.fullname">
+                <small ng-show="formdk.hoTen.$invalid" class="text-danger" style="padding-left: 14px;">Chưa nhập họ tên</small>
+            </div>
+            <div class="col-6">
+                <input class="form-control rounded-0 border-top-0 border-left-0 border-right-0" type="email" placeholder="Nhập email" name="email" required ng-model="st.email">
+                <small ng-show="formdk.email.$error.required" class="text-danger" style="padding-left: 14px;">Chưa nhập email</small>
+                <small ng-show="formdk.email.$invalid && !formdk.email.$error.required" class="text-danger" style="padding-left: 14px;">Email sai định dạng</small>
+            </div>
+        </div>
+        <div class="form-group px-4 pt-2 pb-2 row">
+            <div class="col-6">
+                    <select class="form-control" required name="chooseGender" ng-model="st.gender">
+                      <option value="" hidden selected>Chọn giới tính</option>
+                      <option ng-value="true">Nam</option>
+                      <option ng-value="false">Nữ</option>
+                    </select>
+                <small ng-show="formdk.chooseGender.$error.required" class="text-danger" style="padding-left: 14px;">Chưa chọn giới tính</small>
+            </div>
+            <div class="col-6">
+              <div class="input-group">
+                <input class="form-control" ng-model="st.birthday" is-open="popup2.opened"
+                    close-text="Close" uib-datepicker-popup="{{format}}" ng-model-options="{timezone: null}"
+                    date-input placeholder="Chọn ngày sinh" name="chooseBirthDay" required ng-pattern="/^([0-9]{2})-([0-9]{2})-([0-9]{4})$/"/>
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger" ng-click="open2()"><i
+                            class="far fa-calendar-alt"></i></button>
+                </div>
+              </div>
+                <small ng-show="formdk.chooseBirthDay.$error.required" class="text-danger" style="padding-left: 14px;">Chưa chọn ngày sinh</small>
+                <small ng-show="!formdk.chooseBirthDay.$error.required && formdk.chooseBirthDay.$invalid" class="text-danger" style="padding-left: 14px;">Ngày sinh không hợp lệ</small>
+            </div>
+        </div>
+        <div class="form-group px-4 pt-2 pb-2 row">
+            <div class="col form-check-inline ml-3">
+                <input class="" type="checkbox" required name="agree" ng-model="agree">
+                <span class="text-white ml-2">Tôi đã đọc các điều khoản</span>
+            </div>
+        </div>
+        <div class="form-group pb-3 px-4">
+            <button ng-disabled="formdk.$pristine || formdk.$invalid || formdk.agree.$invalid" ng-click="dangky()" class="btn rounded-0 form-control text-white" style="height: 50px; background-color: #009EFA"><h4 class="my-0">ĐĂNG KÝ</h4></button>
+        </div>
+    </form>
+    </div>
+  </div>
+  <!--Modal đăng ký tài khoản Edge-->
+
+  <!--Modal Edit-->
+  <div id="editStudent" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <form name="formEdit" class="modal-content bg-warning font-weight-bold">
+
+          <div class="modal-header">
+            <h4 class="modal-title text-dark font-weight-bold">Chỉnh sửa thông tin sinh viên</h4>
+          </div>
+          <div class="modal-body" id="model-body">
+            <div class="form-group">
+              <label>Họ tên</label> 
+              <div class="input-group">
+                <input name="fullname" ng-model="editSt.fullname" class="form-control" placeholder="Nhập họ tên" required>
+                <div class="input-group-append">
+                    <span class="input-group-text bg-dark"><i class="fas fa-user text-white"></i></span>
+                </div>
+            </div>
+            <small ng-show="formEdit.fullname.$error.required" class="text-white badge badge-danger">Chưa nhập họ tên</small>
+            </div>
+            <div class="form-group row mb-0">
+              <div class="form-group col">
+                <label>Username</label> 
+                <div class="input-group">
+                  <input name="username" ng-model="editSt.username" class="form-control" placeholder="Nhập username" required ng-minlength="6" ng-maxlength="30">
+                  <div class="input-group-append">
+                      <span class="input-group-text bg-dark"><i class="fas fa-portrait text-white"></i></span>
+                  </div>
+              </div>
+              <small ng-show="formEdit.username.$error.required" class="text-white badge badge-danger">Chưa nhập username</small>
+              <small ng-show="!formEdit.username.$error.required && formEdit.username.$invalid" class="text-white badge badge-danger">Username từ 6 - 30 ký tự</small>
+              </div>
+              <div class="form-group col">
+                <label>Password</label> 
+                <div class="input-group">
+                  <input name="password" type="password" ng-model="editSt.password" class="form-control" placeholder="Nhập password" required ng-minlength="6" ng-maxlength="30">
+                  <div class="input-group-append">
+                      <span class="input-group-text bg-dark"><i class="fas fa-lock text-white"></i></span>
+                  </div>
+              </div>
+              <small ng-show="formEdit.password.$error.required" class="text-white badge badge-danger">Chưa nhập password</small>
+              <small ng-show="!formEdit.password.$error.required && formEdit.password.$invalid" class="text-white badge badge-danger">Password từ 6 - 30 ký tự</small>
+              </div>
+            </div>
+            <div class="form-group row mb-0">
+              <div class="form-group col">
+                <label>Học phí</label> 
+                <div class="input-group">
+                  <input name="schoolfee" type="number" ng-model="editSt.schoolfee" class="form-control" placeholder="Nhập học phí" ng-min="200000"  required>
+                  <div class="input-group-append">
+                      <span class="input-group-text bg-dark justify-content-center" style="width: 38.69px;"><i class="fas fa-dollar-sign text-white"></i></span>
+                  </div>
+              </div>
+              <small ng-show="formEdit.schoolfee.$error.required" class="text-white badge badge-danger">Chưa nhập học phí</small>
+              <small ng-show="!formEdit.schoolfee.$error.required && formEdit.schoolfee.$invalid" class="text-white badge badge-danger">Học phí tối thiểu 200000 VNĐ</small>
+              </div>
+              <div class="form-group col">
+                <label>Điểm</label> 
+                <div class="input-group">
+                  <input name="marks" type="number" ng-model="editSt.marks" class="form-control" placeholder="Nhập điểm" required ng-min="0" ng-max="10">
+                  <div class="input-group-append">
+                      <span class="input-group-text bg-dark"><i class="fas fa-marker text-white"></i></span>
+                  </div>
+              </div>
+              <small ng-show="formEdit.marks.$error.required" class="text-white badge badge-danger">Chưa nhập điểm</small>
+              <small ng-show="!formEdit.marks.$error.required && formEdit.marks.$invalid" class="text-white badge badge-danger">Điểm từ 0 - 10</small> 
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label> 
+              <div class="input-group">
+                <input name="email" type="email" ng-model="editSt.email" class="form-control" placeholder="Nhập email" required>
+                <div class="input-group-append">
+                    <span class="input-group-text bg-dark"><i class="far fa-envelope text-white"></i></span>
+                </div>
+            </div>
+                <small ng-show="formEdit.email.$error.required" class="text-white badge badge-danger">Chưa nhập email</small>
+                <small ng-show="formEdit.email.$invalid && !formEdit.email.$error.required" class="text-white badge badge-danger">Email sai định dạng</small>
+            </div>
+            <div class="form-group mb-0">
+              <span class="form-check form-check-inline"> <label
+                for="male" class="form-check-label">Giới tính</label>
+              </span>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" id="maleEdit"
+                  name="gender" ng-value="true" ng-model="editSt.gender" ng-required="!editSt.gender"/> <label for="male"
+                  class="form-check-label">Nam</label>
+              </div>
+  
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" id="femaleEdit"
+                  name="gender" ng-value="false" ng-model="editSt.gender" ng-required="!editSt.gender"/> <label for="female"
+                  class="form-check-label">Nữ</label>
+              </div>
+            </div>
+            <small ng-show="formEdit.gender.$error.required" class="text-white badge badge-danger">Chưa chọn giới tính</small>
+            <div class="form-group mt-2">
+              <label>Ngày sinh</label> 
+              <!-- <input type="date" class="form-control" name="dob" required name="phone" id="dob"> -->
+              <div class="input-group">
+                <input name="chooseBirthDay" class="form-control" ng-model="editSt.birthday" is-open="popup2.opened"
+                    close-text="Close" uib-datepicker-popup="{{format}}" ng-model-options="{timezone: null}"
+                    date-input placeholder="Chọn ngày sinh" required ng-pattern="/^([0-9]{2})-([0-9]{2})-([0-9]{4})$/"/>
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger" ng-click="open2()"><i
+                            class="far fa-calendar-alt"></i></button>
+                </div>
+            </div>
+            <small ng-show="formEdit.chooseBirthDay.$error.required" class="text-white badge badge-danger">Chưa chọn ngày sinh</small>
+                <small ng-show="!formEdit.chooseBirthDay.$error.required && formEdit.chooseBirthDay.$invalid" class="text-white badge badge-danger">Ngày sinh không hợp lệ</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal"><i class="fas fa-stop mr-2"></i>Huỷ</button>
+            <button ng-disabled="formEdit.$invalid" class="btn btn-success" ng-click="saveEdit()"><i class="far fa-save mr-2"></i>Lưu</button>
+          </div>
+      </form>
+    </div>
+  </div>
+  <!-- Modal edit Edge-->
+
+  <!-- Delete Modal HTML -->
+  <div id="deleteStudent" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <!-- <form method="POST" action="Admin/Account-delete"> -->
+          <div class="modal-header">
+            <h4 class="modal-title">Xoá sinh viên</h4>
+          </div>
+          <div class="modal-body">
+            <p class="text-danger">Bạn có muốn xoá sinh viên này?</p>
+            <input type="hidden" id="deleteUserID" name="userID">
+          </div>
+          <div class="modal-footer">
+              <div class="form-group">
+                <button class="btn btn-primary" data-dismiss="modal"><i class="fas fa-stop mr-2"></i>Huỷ</button> 
+                <button class="btn btn-danger" ng-click="acceptDelete()"><i class="far fa-trash-alt mr-2"></i>Xoá</button>
+              </div>   
+          </div>
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+  
+  <!--Modal Error Message-->
+  <div id="errorMessage" class="modal fade" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-confirm" style="width: 500px;">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center bg-danger">
+                <div class="icon-box mx-auto">
+                    <i class="far fa-times-circle text-white" style="font-size: 50px;"></i>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Warning!</h4>
+                <p>{{errorMessage}}</p>
+                <button class="btn btn-warning" data-dismiss="modal">Try Again</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal Error Message Edge-->
+<!--Modal Error Message2-->
+<div id="errorMessage2" class="modal fade" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-confirm modal-dialog-centered" style="width: 500px;">
+      <div class="modal-content">
+          <div class="modal-header justify-content-center bg-danger">
+              <div class="mx-auto cssMessageError2">
+                  <i class="far fa-times-circle text-white" style="font-size: 50px;"></i>
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          </div>
+          <div class="modal-body text-center">
+              <h4>Warning!</h4>
+              <p>{{errorMessage2}}</p>
+              <button class="btn btn-warning" data-dismiss="modal">Try Again</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!--Modal Error Message2 Edge-->
+<!-- Modal Info After Register-->
+<div id="registerInfo" class="modal fade" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-confirm modal-dialog-centered" style="width: 500px;">
+      <div class="modal-content">
+          <div class="modal-header bg-danger">
+              <div class="text-white text-center mx-auto">
+                  <h3 class="mx-auto">THÔNG TIN ĐĂNG KÝ</h3>
+              </div>
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+          </div>
+          <div class="modal-body registerInfoCSS mx-auto justify-content-center">
+              <p><span>Username</span>{{infoRegister.username}}</p>
+              <p><span>Password</span>{{infoRegister.password}}</p>
+              <p><span>Họ tên</span>{{infoRegister.fullname}}</p>
+              <p><span>Email</span>{{infoRegister.email}}</p>
+              <p><span>Giới tính</span>{{infoRegister.gender?'Nam':'Nữ'}}</p>
+              <p><span>Ngày sinh</span>{{infoRegister.birthday|date:'dd-MM-yyyy'}}</p>
+              <p><span>Học phí</span>{{infoRegister.schoolfee | number}} VNĐ</p>
+              <p><span>Điểm</span>{{infoRegister.marks}}</p>
+              
+          </div>
+          <button class="btn btn-warning mx-auto mb-3" data-dismiss="modal">OK</button>
+      </div>
+  </div>
+</div>
+<!-- Modal Info After Register Edge-->
+<!--Modal Finish Test-->
+<div id="finishTest" class="modal fade" style="display: none;" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-confirm modal-dialog-centered" style="min-width: 500px;">
+      <div class="modal-content">
+          <div class="modal-header justify-content-center" ng-class="testResult()">
+              <div class="mx-auto cssMessageError2">
+                  <i class="text-white" ng-class="iconResult()" style="font-size: 50px;"></i>
+              </div>
+              <button type="button" class="close text-danger" aria-hidden="true">&nbsp;</button>
+          </div>
+          <div class="modal-body">
+              <h4><b>Kết quả bài test</b></h4>
+              <p class="text-success font-weight-bold">{{message}}</p>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col">
+                    <div class="form-group justify-content-center cssTestResult" >
+                      <p><span>Họ tên:</span><span class="text-nowrap">{{userLogin.fullname}}</span></p>
+                      <p><span>Ngày sinh :</span><span>{{userLogin.birthday | date:'dd-MM-yyyy'}}</span></p>
+                      <p><span>Môn thi:</span><span class="text-nowrap">{{sjName}}</span></p>
+                      <p><span>Ngày thi:</span><span>{{now| date:'dd-MM-yyyy'}}</span></p>
+                      <p><span>Kết quả:</span><span class="badge badge-danger" style="font-size: larger;">{{score}}/10</span></p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <button class="btn btn-primary" ng-click="openAnswer()"><i class="fas fa-search mr-2"></i>Đáp án</button>
+              <button class="btn btn-warning" ng-click="thoatTest()"><i class="fas fa-file-alt mr-2"></i>Thoát</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!--Modal Finish Test Edge-->
+ <!--Modal Warning-->
+ <div id="warningModal" class="modal fade" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-confirm modal-dialog-centered" style="width: 500px;">
+      <div class="modal-content">
+          <div class="modal-header justify-content-center bg-danger">
+              <div class="icon-box mx-auto">
+                  <!-- <i class="far fa-times-circle text-white" style="font-size: 50px;"></i> -->
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          </div>
+          <div class="modal-body text-center">
+              <h4>Bạn có chắc muốn kết thúc môn thi?</h4>
+              <button class="btn btn-danger" ng-click="showResult()">Accept</button>
+              <button class="btn btn-success" data-dismiss="modal">Cancel</button>
+          </div>
+      </div>
+  </div>
+</div>
+<!--Modal Warning Edge--> 

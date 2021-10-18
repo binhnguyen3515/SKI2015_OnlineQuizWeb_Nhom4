@@ -1,0 +1,99 @@
+<div class="logo-details">
+    <div class="logo_name form-check-inline"><i class="fas fa-layer-group"></i>Danh mục</div>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+  <ul class="nav-list accordion" id="accordionExample">
+    <li>
+      <i class='bx bx-search'></i>
+      <input type="text" placeholder="Tìm kiếm...">
+    </li>
+    <li class="nav-item">
+      <a href="#!/trangChu">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Trang Chủ</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#!/gioiThieu">
+        <i class='bx bx-info-square'></i>
+        <span class="links_name">Giới thiệu</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#!/lienHe">
+        <i class='bx bx-phone-outgoing'></i>
+        <span class="links_name">Liên hệ</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#!/gopY">
+        <i class='bx bx-chat'></i>
+        <span class="links_name">Góp ý</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#!/hoiDap">
+        <i class='bx bx-question-mark'></i>
+        <span class="links_name">Hỏi đáp</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+        aria-controls="collapseTwo">
+        <i class='bx bx-book-reader'></i>
+        <span class="links_name">Các môn học</span>
+      </a>
+      <div id="collapseTwo" class="collapse sidebar-submenu" aria-labelledby="headingTwo"
+        data-parent="#accordionExample">
+        <div class="list-group">
+          <a href="#!quiz/{{sj.Id}}/{{sj.Name}}/{{sj.Logo}}" class="list-group-item list-group-item-action" ng-repeat="sj in subjectsSideBar">
+            <i ng-class="sj.icon"></i><span>{{sj.Name}}</span></a>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a href="" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+        aria-controls="collapseOne">
+        <i class='bx bx-user'></i>
+        <span class="links_name">Tài khoản</span>
+      </a>
+      <div id="collapseOne" class="collapse sidebar-submenu" aria-labelledby="headingOne"
+        data-parent="#accordionExample">
+        <div class="list-group">
+          <a href="" class="list-group-item list-group-item-action" aria-current="true" data-toggle="modal" data-target="#staticQuenMatKhau" ng-show="!accountStatus">
+            <i class="far fa-question-circle"></i><span>Quên mật khẩu</span>
+          </a>
+          <a href="" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#staticDoiMatKhau" ng-show="accountStatus"><i
+              class="fas fa-user-edit"></i><span>Đổi mật khẩu</span></a>
+          <a href="dangNhap.html" class="list-group-item list-group-item-action" ng-show="!accountStatus"><i
+              class="fas fa-sign-in-alt"></i><span>Đăng nhập</span></a>
+          <a href="" class="list-group-item list-group-item-action" data-toggle="modal" data-target="#staticDangKy" ng-show="!accountStatus"><i
+              class="fas fa-user-plus"></i><span>Đăng ký tài khoản</span></a>
+          <a href="#!danhSachSinhVien" class="list-group-item list-group-item-action" ng-show="accountStatus"><i class="fas fa-clipboard-list"></i></i><span>Danh sách sinh viên</span></a>
+          <a href="" class="list-group-item list-group-item-action"  ng-show="accountStatus" ng-click="logOut()"><i
+            class="fas fa-sign-out-alt"></i><span>Đăng xuất</span></a>
+        </div>
+      </div>
+    </li>
+    <li style="height: 100px; background-color: transparent; color: transparent;">
+      <a style="height: 100px; background-color: transparent; color: transparent;">
+        <span class="links_name"></span>
+      </a>
+    </li>
+    <li class="profile">
+      <div class="profile-details">
+        <!--<img src="profile.jpg" alt="profileImg">-->
+        <div class="name_mssv" ng-show="accountStatus">
+            <div class="name">{{userLogin.fullname}}</div>
+            <div class="mssv">{{userLogin.email}}</div>
+        </div>
+        <div class="name_mssv" ng-show="!accountStatus">
+          <div class="name">Guest Account</div>
+          <div class="mssv">No information</div>
+      </div>
+
+      </div>
+      <a href="#!/trangChu" ng-click="logOut()"><i class='bx bx-log-out' id="log_out"></i></a>
+    </li>
+  </ul>
+  

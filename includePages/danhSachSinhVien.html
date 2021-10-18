@@ -1,0 +1,41 @@
+<div class="col setBoxShadow mb-3 pt-3 pb-3">
+  <div class="table-responsive">
+    <!-- Include Content here-->
+    <table class="table table-bordered table-hover" id="myTable">
+      <thead style="background-color: rgb(18, 109, 161);" class="text-white">
+        <tr class="text-nowrap">
+          <th>#</th>
+          <th>Họ tên</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Email</th>
+          <th>Giới tính</th>
+          <th>Ngày sinh</th>
+          <th>Học phí</th>
+          <th>Điểm</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="s in students track by $index" class="text-nowrap" ng-class="{'activeEdit':activeClass[$index]}">
+          <th>{{$index+1}}</th>
+          <td>{{s.fullname}}</td>
+          <td>{{s.username}}</td>
+          <td>{{s.password}}</td>
+          <td>{{s.email}}</td>
+          <td>{{s.gender?'Nam':'Nữ'}}</td>
+          <td>{{s.birthday|date:'dd-MM-yyyy'}}</td>
+          <td>{{s.schoolfee|number:0}}</td>
+          <td>{{s.marks}}</td>
+          <td class="text-center"><a href="#!danhSachSinhVien" class="edit" data-toggle="modal" id="submitEdit"
+              data-target="#editStudent" ng-click="editUser($index)"><i class="material-icons text-primary"
+                data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+            <a href="#!danhSachSinhVien" id="submitDelete" class="delete" data-target="#deleteStudent"
+              data-toggle="modal" ng-click="deleteUser($index)"><i class="material-icons text-warning" data-toggle="tooltip"
+                title="Delete">&#xE872;</i></a></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Edge content-->
+  </div>
+</div>
